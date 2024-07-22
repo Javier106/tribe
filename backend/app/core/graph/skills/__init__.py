@@ -2,11 +2,10 @@ from langchain.pydantic_v1 import BaseModel
 from langchain.tools import BaseTool
 from langchain_community.tools import DuckDuckGoSearchRun, WikipediaQueryRun
 from langchain_community.tools.yahoo_finance_news import YahooFinanceNewsTool
-from langchain_community.utilities import (
-    WikipediaAPIWrapper,
-)
+from langchain_community.utilities import WikipediaAPIWrapper
 
-# from .calculator import calculator
+# Importar el tool de mercury.py
+from .mercury import mercury_search
 
 
 class SkillInfo(BaseModel):
@@ -15,9 +14,7 @@ class SkillInfo(BaseModel):
 
 
 managed_skills: dict[str, SkillInfo] = {
-    "duckduckgo-search": SkillInfo(
-        description="Searches the web using DuckDuckGo", tool=DuckDuckGoSearchRun()
-    ),
+    "duckduckgo-search": SkillInfo(description="Searches the web using DuckDuckGo", tool=DuckDuckGoSearchRun()),
     "wikipedia": SkillInfo(
         description="Searches Wikipedia",
         tool=WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper()),  # type: ignore[call-arg]
@@ -26,11 +23,12 @@ managed_skills: dict[str, SkillInfo] = {
         description="Get information from Yahoo Finance News.",
         tool=YahooFinanceNewsTool(),
     ),
-    # "calculator": SkillInfo(
-    #     description=calculator.description,
-    #     tool=calculator,
-    # ),
+    "mercury-search": SkillInfo(
+        description=mercury_search.description,
+        tool=mercury_search,
+    ),
 }
+
 
 # To add more custom tools, follow these steps:
 # 1. Create a new Python file in the `skills` folder (e.g., `calculator.py`).

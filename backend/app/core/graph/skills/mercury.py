@@ -59,16 +59,10 @@ def listar_objetos(bucket_name: str):
 
 
 # Crear la skill utilizando StructuredTool.from_function
-list_objects_tool = StructuredTool.from_function(
+mercury_search = StructuredTool.from_function(
     func=listar_objetos,
-    name="ListObjects",
+    name="MercurySearch",
     description="Useful for listing objects in an S3 bucket, excluding files ending in .bzEmpty and not containing '2024'.",
     args_schema=ListObjectsInput,
     return_direct=True,
 )
-
-# Ejemplo de llamada a la función
-bucket_name = "nombredelbucket"
-objetos_listados = listar_objetos(bucket_name)
-df = pd.DataFrame(objetos_listados)
-print(df)
