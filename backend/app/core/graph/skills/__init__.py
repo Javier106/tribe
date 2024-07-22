@@ -24,7 +24,7 @@ managed_skills: dict[str, SkillInfo] = {
         tool=YahooFinanceNewsTool(),
     ),
     "mercury-search": SkillInfo(
-        description=mercury_search.description,
+        description="Useful for listing objects in an S3 bucket",
         tool=mercury_search,
     ),
 }
