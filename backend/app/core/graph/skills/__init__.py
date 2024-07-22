@@ -6,7 +6,7 @@ from langchain_community.utilities import WikipediaAPIWrapper
 
 # Importar el tool de mercury.py
 from .mercury import mercury_search
-from .vulcano import key_words_search
+from .vulcano import vulcano_search
 from .minerva import minerva_tool
 
 
@@ -29,7 +29,7 @@ managed_skills: dict[str, SkillInfo] = {
         description="Useful for listing objects in an S3 bucket",
         tool=mercury_search,
     ),
-    "key-words-search": SkillInfo(
+    "vulcano_search": SkillInfo(
         description=key_words_search.description,
         tool=key_words_search,
     ),
