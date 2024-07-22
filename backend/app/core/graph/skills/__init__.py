@@ -7,6 +7,7 @@ from langchain_community.utilities import WikipediaAPIWrapper
 # Importar el tool de mercury.py
 from .mercury import mercury_search
 from .vulcano import key_words_search
+from .minerva import minerva_tool
 
 
 class SkillInfo(BaseModel):
@@ -31,6 +32,10 @@ managed_skills: dict[str, SkillInfo] = {
     "key-words-search": SkillInfo(
         description=key_words_search.description,
         tool=key_words_search,
+    ),
+    "minerva-tool": SkillInfo(
+        description=minerva_tool.description,
+        tool=minerva_tool,
     ),
 }
 
