@@ -103,7 +103,7 @@ def procesar_archivos(bucket_name, palabra_clave):
 
 
 # Crear la skill utilizando StructuredTool.from_function
-key_words_search = StructuredTool.from_function(
+vulcano_search = StructuredTool.from_function(
     func=procesar_archivos,
     name="KeyWordsSearch",
     description="Searches for a keyword in .txt and .csv files in an S3 bucket.",
