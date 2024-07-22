@@ -30,8 +30,8 @@ managed_skills: dict[str, SkillInfo] = {
         tool=mercury_search,
     ),
     "vulcano_search": SkillInfo(
-        description=key_words_search.description,
-        tool=key_words_search,
+        description="key_words_search.description",
+        tool=vulcano_search,
     ),
     "minerva-tool": SkillInfo(
         description=minerva_tool.description,
