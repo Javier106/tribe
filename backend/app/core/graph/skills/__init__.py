@@ -5,9 +5,9 @@ from langchain_community.tools.yahoo_finance_news import YahooFinanceNewsTool
 from langchain_community.utilities import WikipediaAPIWrapper
 
 # Importar el tool de mercury.py
-from .mercury import mercury_search
-from .vulcano import vulcano_search
-from .minerva import minerva_tool
+from mercury import mercury_search
+from vulcano import vulcano_search
+from minerva import minerva_tool
 
 
 class SkillInfo(BaseModel):
